@@ -1,0 +1,6 @@
+interface:
+  display_name: "Talia Interactive Production"
+  short_description: "Build validated interactive Talia story drafts"
+  default_prompt: "Use $talia-interactive-production to design and assemble a validated Talia interactive story draft."
+policy:
+  allow_implicit_invocation: true
