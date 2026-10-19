@@ -52,7 +52,7 @@ python3 scripts/validate_node_graph.py path/to/story/node_graph.json
 python3 scripts/inspect_media.py path/to/video.mp4
 ```
 
-需要 Python 3；媒体检查需要 `ffprobe`。Talia CLI、生图、视频和浏览器能力由宿主环境按需提供。
+需要 Python 3；媒体检查需要 `ffprobe`。Talia CLI 已开源，`npm i -g github:CCRobert1997/talia-cli` 即装（见 [talia-cli.md](skills/talia-interactive-production/references/talia-cli.md)）；生图、视频和浏览器能力由宿主环境按需提供。
 
 ## 许可
 

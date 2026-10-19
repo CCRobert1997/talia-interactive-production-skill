@@ -61,7 +61,7 @@ python3 scripts/validate_node_graph.py path/to/story/node_graph.json
 python3 scripts/inspect_media.py path/to/video.mp4
 ```
 
-Python 3 is required. `ffprobe` is required for media inspection. The Talia CLI and media/browser tools are optional capabilities supplied by the host environment.
+Python 3 is required. `ffprobe` is required for media inspection. The Talia CLI is open source and installs with `npm i -g github:CCRobert1997/talia-cli` (see [talia-cli.md](skills/talia-interactive-production/references/talia-cli.md)); media and browser tools are optional capabilities supplied by the host environment.
 
 ## License
 

@@ -1,11 +1,27 @@
 # Talia CLI 安全用法
 
-从当前工作区确定 CLI 的实际调用方式。先执行只读检查：
+## 安装
+
+CLI 开源于 <https://github.com/CCRobert1997/talia-cli>（MIT），仓内直接附带预构建单文件，只需 Node 20+：
 
 ```bash
+npm i -g github:CCRobert1997/talia-cli
+talia login you@example.com     # 与 editor.taliaapp.com 同一个创作者账号
 talia whoami
-talia projects
-talia validate <projectId>
+```
+
+工作区里 `talia` 已在 `PATH` 时直接用。在 Talia 编辑器 monorepo 内等价写法是 `npm run cli -- <命令>`。
+
+不设 `SUPABASE_URL` / `SUPABASE_ANON_KEY` 时 CLI 默认连 Talia 生产库；内置 anon key 本就公开，RLS 把每次写入限定到登录者本人。要连其他实例，设这两个变量（或写 `~/.talia/config.json`）覆盖。
+
+## 读机器可解析输出
+
+所有读命令支持 `--json`，输出一行 JSON；写命令加 `--json` 输出 `{"ok":true,"id":"…"}`。优先用 `--json`，不要解析自然语言输出。先执行只读检查：
+
+```bash
+talia whoami --json
+talia projects --json
+talia validate <projectId> --json
 ```
 
 ## 允许操作

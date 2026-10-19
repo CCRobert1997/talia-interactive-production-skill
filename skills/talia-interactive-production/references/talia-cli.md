@@ -1,11 +1,27 @@
 # Safe Talia CLI use
 
-Resolve the CLI executable from the current workspace. Begin with read-only checks:
+## Install
+
+The CLI is open source at <https://github.com/CCRobert1997/talia-cli> (MIT). It ships a prebuilt single file, so installation needs only Node 20+:
 
 ```bash
+npm i -g github:CCRobert1997/talia-cli
+talia login you@example.com     # same creator account as editor.taliaapp.com
 talia whoami
-talia projects
-talia validate <projectId>
+```
+
+If `talia` is already on `PATH` in the workspace, use it as is. Inside the Talia editor monorepo the equivalent is `npm run cli -- <command>`.
+
+Without `SUPABASE_URL` / `SUPABASE_ANON_KEY` the CLI targets the production Talia backend; the embedded anon key is public and RLS scopes every write to the logged-in creator. Set the two variables (or `~/.talia/config.json`) to point at another instance.
+
+## Read machine-readable output
+
+Every read command accepts `--json` and prints one JSON line; write commands with `--json` print `{"ok":true,"id":"…"}`. Prefer `--json` over parsing prose output. Begin with read-only checks:
+
+```bash
+talia whoami --json
+talia projects --json
+talia validate <projectId> --json
 ```
 
 ## Allowed
