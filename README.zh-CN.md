@@ -2,14 +2,39 @@
 
 [English README](README.md)
 
-一套与模型无关的 Talia 图片/视频互动影游制作 Skill，覆盖分支剧本、媒体生成工单、图片和视频质检、互动配置以及通过验证的 Talia 草稿项目。
+一套与模型无关的 Agent Skill，用于设计和制作 Talia 图片/视频互动影游：分支剧本、媒体生成工单、质检门槛，以及通过 Talia CLI 装配并验证的草稿项目。
 
-选择一个语言版本，将整个目录复制到 Agent harness 支持的 Skill 目录：
+适用于任何读取 [Agent Skills](https://agentskills.io) `SKILL.md` 格式的 harness（Claude Code、OpenAI Codex、Cursor、OpenCode 等）；没有 skill 机制的 harness 用一段项目指令指向 `SKILL.md` 即可。
 
-- English：`skills/en/talia-interactive-production/`
-- 简体中文：`skills/zh-CN/talia-interactive-production/`
+## 安装
 
-两个版本具有相同流程、安全边界、验证脚本和 Skill 名称。同一个 Skill 根目录只安装一个语言版本。
+一条命令装进多个 harness：
+
+```bash
+npx skills@latest add CCRobert1997/talia-interactive-production-skill \
+  --agent claude-code --agent codex --agent cursor
+```
+
+或手动把 `skills/talia-interactive-production/` 整个目录复制到 harness 的 skill 目录：
+
+| Harness | 路径 |
+|---|---|
+| Claude Code | `~/.claude/skills/`（用户级）或 `.claude/skills/`（项目级） |
+| OpenAI Codex | `~/.codex/skills/`（用户级）或 `.codex/skills/`（项目级） |
+| 无 skill 发现机制（自建 DeepSeek harness、Trae、WorkBuddy 等） | 目录留在仓库内，把 [harness-installation.md](skills/talia-interactive-production/references/harness-installation.md) 里的那段指令贴进 `AGENTS.md` / `CLAUDE.md` / 项目规则 / system prompt |
+
+Agent 加载的是英文 `SKILL.md`。给人读的简体中文译本在 `skills/talia-interactive-production/i18n/zh-CN/`，英文为准，译本可能滞后。
+
+## 目录
+
+```
+skills/talia-interactive-production/
+├── SKILL.md                 # 入口，harness 加载它
+├── agents/openai.yaml       # Codex 展示元数据（可选）
+├── references/              # SKILL.md 按需引用
+├── scripts/                 # Python 3，无第三方依赖（inspect_media 需 ffprobe）
+└── i18n/zh-CN/              # SKILL.md + references 的中文译本
+```
 
 ## 安全边界
 
@@ -29,6 +54,6 @@ python3 scripts/inspect_media.py path/to/video.mp4
 
 需要 Python 3；媒体检查需要 `ffprobe`。Talia CLI、生图、视频和浏览器能力由宿主环境按需提供。
 
-## 许可证
+## 许可
 
 Apache-2.0。

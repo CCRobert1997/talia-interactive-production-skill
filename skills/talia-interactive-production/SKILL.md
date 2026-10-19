@@ -9,7 +9,7 @@ Produce a reviewable Talia draft from story design, character and environment an
 
 ## Discover capabilities first
 
-Run `scripts/capability_probe.py` in an unfamiliar harness and read [capability routing](references/capability-routing.md). Route by demonstrated capabilities rather than model names.
+Run `scripts/capability_probe.py` in an unfamiliar harness and read [capability routing](references/capability-routing.md). Route by demonstrated capabilities rather than model names. Install paths and the instruction-only fallback are in [harness installation](references/harness-installation.md).
 
 Use exactly one status for each deliverable:
 

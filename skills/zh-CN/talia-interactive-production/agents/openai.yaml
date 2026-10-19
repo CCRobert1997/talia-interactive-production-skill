@@ -1,6 +1,0 @@
-interface:
-  display_name: "Talia 互动影游制作"
-  short_description: "制作并验证 Talia 互动影游草稿"
-  default_prompt: "使用 $talia-interactive-production 设计并装配一份通过验证的 Talia 互动影游草稿。"
-policy:
-  allow_implicit_invocation: true

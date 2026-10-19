@@ -9,7 +9,7 @@ description: 从分支剧本、图片和视频制作到媒体质检及通过验�
 
 ## 先探测能力
 
-在陌生 harness 中先运行 `scripts/capability_probe.py`，并阅读[能力路由](references/capability-routing.md)。根据实际证明的能力选择流程，不根据模型名称做假设。
+在陌生 harness 中先运行 `../../scripts/capability_probe.py`，并阅读[能力路由](references/capability-routing.md)。根据实际证明的能力选择流程，不根据模型名称做假设。
 
 每项交付只能使用以下一种状态：
 
@@ -63,4 +63,4 @@ G1–G4 阅读[媒体制作](references/media-production.md)，拒绝标准阅�
 
 每项媒体记录：节点/镜头用途、完整参考和最终提示词、供应商/模型/设置、本地路径、远程任务或 URL、已知实际费用、质检结果或拒绝原因、替换版本、应用到哪个 Talia 节点。
 
-使用 `scripts/validate_node_graph.py` 检查结构，使用 `scripts/inspect_media.py` 检查本地媒体参数。脚本只能辅助质检，不能代替视觉审核和听音检查。
+使用 `../../scripts/validate_node_graph.py` 检查结构，使用 `../../scripts/inspect_media.py` 检查本地媒体参数。脚本只能辅助质检，不能代替视觉审核和听音检查。

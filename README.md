@@ -2,14 +2,48 @@
 
 [中文说明](README.zh-CN.md)
 
-A model-agnostic skill for designing and producing Talia interactive image and video stories, from branching script and media generation orders to QA and a validated Talia draft.
+A model-agnostic agent skill for designing and producing Talia interactive image and video stories: branching script, media generation orders, QA gates, and a validated Talia draft assembled through the Talia CLI.
 
-Choose one language package and copy the whole folder into the skill directory supported by your agent harness:
+Works with any harness that reads the [Agent Skills](https://agentskills.io) `SKILL.md` format (Claude Code, OpenAI Codex, Cursor, OpenCode, and others), and with instruction-only harnesses through a one-paragraph pointer.
 
-- English: `skills/en/talia-interactive-production/`
-- 简体中文: `skills/zh-CN/talia-interactive-production/`
+## Install
 
-Both packages have the same workflow, safety boundary, validation scripts, and skill name. Install only one language variant in a given skill root.
+One command, several harnesses:
+
+```bash
+npx skills@latest add CCRobert1997/talia-interactive-production-skill \
+  --agent claude-code --agent codex --agent cursor
+```
+
+Or copy `skills/talia-interactive-production/` into your harness's skill directory:
+
+| Harness | Path |
+|---|---|
+| Claude Code | `~/.claude/skills/` (user) or `.claude/skills/` (project) |
+| OpenAI Codex | `~/.codex/skills/` (user) or `.codex/skills/` (project) |
+| No skill discovery | keep the folder in the repo and add the pointer from [harness-installation.md](skills/talia-interactive-production/references/harness-installation.md) to `AGENTS.md` / `CLAUDE.md` / your system prompt |
+
+English `SKILL.md` is what the agent loads. A Simplified Chinese translation for human readers lives in `skills/talia-interactive-production/i18n/zh-CN/`.
+
+## Layout
+
+```
+skills/talia-interactive-production/
+├── SKILL.md                 # entry point, loaded by the harness
+├── agents/openai.yaml       # Codex display metadata (optional)
+├── references/              # loaded on demand from SKILL.md
+│   ├── capability-routing.md
+│   ├── harness-installation.md
+│   ├── media-production.md
+│   ├── qa-gates.md
+│   ├── story-and-interaction.md
+│   └── talia-cli.md
+├── scripts/                 # Python 3, no third-party deps
+│   ├── capability_probe.py
+│   ├── validate_node_graph.py
+│   └── inspect_media.py     # needs ffprobe
+└── i18n/zh-CN/              # translation of SKILL.md + references
+```
 
 ## Safety boundary
 
@@ -27,7 +61,7 @@ python3 scripts/validate_node_graph.py path/to/story/node_graph.json
 python3 scripts/inspect_media.py path/to/video.mp4
 ```
 
-Python 3 is required. `ffprobe` is required for media inspection. Talia CLI and media/browser tools are optional capabilities supplied by the host environment.
+Python 3 is required. `ffprobe` is required for media inspection. The Talia CLI and media/browser tools are optional capabilities supplied by the host environment.
 
 ## License
 
