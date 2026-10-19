@@ -38,12 +38,24 @@ skills/talia-interactive-production/
 │   ├── qa-gates.md
 │   ├── story-and-interaction.md
 │   └── talia-cli.md
+├── adapters/                # one page per image-generation route
+│   ├── README.md            # which adapter to read, shared contract
+│   ├── codex-image-gen.md
+│   ├── openai-images-api.md
+│   ├── dreamina-browser.md
+│   └── order-only.md
+├── templates/               # copy, then fill
+│   ├── node_graph.json      # passes validate_node_graph.py as is
+│   ├── image_order.md
+│   └── handoff_record.md
 ├── scripts/                 # Python 3, no third-party deps
 │   ├── capability_probe.py
 │   ├── validate_node_graph.py
 │   └── inspect_media.py     # needs ffprobe
 └── i18n/zh-CN/              # translation of SKILL.md + references
 ```
+
+[PORTABILITY.md](PORTABILITY.md) records which harnesses have run the portability test. Fill a row by PR.
 
 ## Safety boundary
 

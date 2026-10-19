@@ -64,3 +64,5 @@ Before mutation, record the target project ID and current values. After mutation
 For every media artifact record its node/shot purpose, exact references and final prompt, provider/model/settings, local path, remote job/URL, actual cost when known, QA result or rejection reason, replacement version, and applied Talia node.
 
 Use `scripts/validate_node_graph.py` for structural checks and `scripts/inspect_media.py` for local media facts. Scripts support QA; they do not replace visual or listening review.
+
+Start new files from `templates/` (`node_graph.json`, `image_order.md`, `handoff_record.md`) rather than from scratch; the graph template already passes the validator. Generate images through the one adapter in `adapters/` that matches the probed capability.

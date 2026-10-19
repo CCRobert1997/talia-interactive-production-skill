@@ -64,3 +64,5 @@ G1–G4 阅读[媒体制作](references/media-production.md)，拒绝标准阅�
 每项媒体记录：节点/镜头用途、完整参考和最终提示词、供应商/模型/设置、本地路径、远程任务或 URL、已知实际费用、质检结果或拒绝原因、替换版本、应用到哪个 Talia 节点。
 
 使用 `../../scripts/validate_node_graph.py` 检查结构，使用 `../../scripts/inspect_media.py` 检查本地媒体参数。脚本只能辅助质检，不能代替视觉审核和听音检查。
+
+新文件从 `../../templates/`（`node_graph.json`、`image_order.md`、`handoff_record.md`）起步，不要从零写；图模板已能通过验证器。生图只读 `../../adapters/` 里与探测结果匹配的那一页（英文）。

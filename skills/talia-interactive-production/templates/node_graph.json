@@ -1,0 +1,36 @@
+{
+  "project": { "id": "PROJECT_SLUG", "title": "Working title", "language": "en", "ratio": "9:16" },
+  "start": "N01",
+  "nodes": [
+    {
+      "id": "N01",
+      "name": "Opening",
+      "type": "normal",
+      "summary": "Where the player is, what they want, and the first thing that goes wrong.",
+      "auto_advance": false,
+      "beats": [
+        { "img": "N01_B1", "prompt": "Full image prompt for this beat, or a reference to orders/N01_B1.md", "card": "On-screen caption text if any" }
+      ],
+      "choices": [
+        { "id": "C01", "text": "Take the risk", "target": "N02", "type": "normal" },
+        { "id": "C02", "text": "Play it safe", "target": "N03", "type": "normal" }
+      ]
+    },
+    {
+      "id": "N02",
+      "name": "Consequence A",
+      "type": "ending",
+      "summary": "What the risky choice costs and what it resolves.",
+      "beats": [ { "img": "N02_B1", "prompt": "..." } ],
+      "choices": []
+    },
+    {
+      "id": "N03",
+      "name": "Consequence B",
+      "type": "ending",
+      "summary": "What playing safe costs and what it resolves.",
+      "beats": [ { "img": "N03_B1", "prompt": "..." } ],
+      "choices": []
+    }
+  ]
+}

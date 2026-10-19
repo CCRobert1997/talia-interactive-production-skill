@@ -18,7 +18,7 @@ The model affects reasoning, storytelling, visual comprehension, and tool-use qu
 
 ## Routes
 
-- **Images:** built-in generator → configured API → creator-selected authenticated browser → self-contained image order.
+- **Images:** built-in generator → configured API → creator-selected authenticated browser → self-contained image order. Each route has a one-page adapter in [`adapters/`](../adapters/README.md); read only the first adapter whose preconditions the probe confirmed.
 - **Video:** use the creator-selected provider. Talia paid generation is always manual. A completed remote job still requires download and G3 QA.
 - **Video QA:** direct video understanding is best; otherwise extract contact sheets and targeted frames and inspect audio separately. Without vision, verify technical facts only.
 - **Browser:** test file upload independently from click and type. A harness that cannot handle the upload path is not a complete production route.

@@ -32,9 +32,13 @@ skills/talia-interactive-production/
 ├── SKILL.md                 # 入口，harness 加载它
 ├── agents/openai.yaml       # Codex 展示元数据（可选）
 ├── references/              # SKILL.md 按需引用
+├── adapters/                # 每条生图通道一页（codex image_gen / OpenAI Images API / 即梦浏览器 / 仅出工单）
+├── templates/               # 复制后填：node_graph.json（直接能过验证器）/ image_order.md / handoff_record.md
 ├── scripts/                 # Python 3，无第三方依赖（inspect_media 需 ffprobe）
 └── i18n/zh-CN/              # SKILL.md + references 的中文译本
 ```
+
+[PORTABILITY.md](PORTABILITY.md) 记录哪些 harness 跑过可移植性测试，欢迎 PR 填格子。
 
 ## 安全边界
 
